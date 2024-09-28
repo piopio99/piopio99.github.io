@@ -1,10 +1,120 @@
 <html>
     <head>
         <title>Data Diri</title>
+        <style>
+            body {
+              background-color: rebeccapurple; /* Warna background */
+            }
+            body, html {
+              height: 100%;
+              margin: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            img {
+              width: 200px;
+              height: 200px;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+
+            .image-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            }
+
+            .nama {
+            text-align: center;
+            margin-top: 20px;
+            }
+
+            .nama h1 {
+                font-size: 24px;
+                margin: 0;
+            }
+
+            .nama h2 {
+                font-size: 18px;
+                margin: 0;
+                font-weight: normal;
+            }
+
+            .link {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .link a img {
+                width: 50px;  /* Ukuran icon */
+                height: 50px;
+                object-fit: cover;
+                border-radius: 50%;  /* Membuat gambar berbentuk lingkaran */
+                margin: 0 10px;  /* Jarak antar icon */
+            }
+            #dateTimeDisplay {
+                position: fixed;
+                bottom: 20px; /* Jarak dari bawah layar */
+                right: 20px; /* Jarak dari sisi kanan layar */
+                font-size: 18px;
+                background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang semi transparan */
+                color: white; /* Warna teks */
+                padding: 10px;
+                border-radius: 10px;
+            }
+          </style>
     </head>
     <body>
-        <H1>Perkenalan</H1>
-        <p>Nama : Elviyana Violeta Putrie<p>
-        <p>NIM : 1202220017</p>
+
+        <div class="image-container">
+            <img src="C:\WAD\images\Pas foto.jpg" alt="Gambar Lingkaran" class="circle-image">
+            <div class="nama">
+                <h1 style="background-color:white ;">
+                    <label>Nama :</label> Elviyana Violeta Putrie <br>
+                    <label>NIM :</label> 1202220017
+                  </h1>
+                <div class="link">
+                    <a href="https://www.instagram.com/elviya_na/" target="_blank">
+                        <img src="C:\Users\ASUS\Downloads\ig.jpeg" alt="">
+                    </a>
+                    <a href="https://www.linkedin.com/Elviyana Violeta Putrie/">
+                        <img src="C:\Users\ASUS\Downloads\linkedin-icon-free-png.webp" alt="">
+                    </a>
+
+                    <a href="https://github.com/piopio99">
+                        <img src="C:\Users\ASUS\Downloads\github.png" alt="">
+                    </a>
+                </div
+            </div>
+        </div>
+        <div id="dateTimeDisplay"></div>
+
+        <script>
+            function updateDateTime() {
+                const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+                const now = new Date();
+
+                // Opsi untuk menampilkan tanggal
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+                // Format tanggal
+                const date = now.toLocaleDateString('id-ID', options);
+
+                // Format waktu
+                const time = now.toLocaleTimeString('id-ID');
+
+                // Update konten elemen dengan tanggal dan waktu
+                dateTimeDisplay.innerHTML = date + ' | ' + time;
+            }
+
+            // Memperbarui setiap detik
+            setInterval(updateDateTime, 1000);
+
+            // Jalankan pertama kali saat halaman dimuat
+            updateDateTime();
+        </script>
+        
     </body>
 </html>
